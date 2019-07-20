@@ -1,0 +1,36 @@
+<md-card class="bus-ticket-card">
+    <md-card-title>Book bus tickets online</md-card-title>
+    <md-card-content>
+        <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+            <div>
+                <md-radio-group name="tripType" [(ngModel)]="model.tripType" required>
+                    <md-radio-button  value="0">One way</md-radio-button>
+                    <md-radio-button  value="1">Round trip</md-radio-button>
+                </md-radio-group>
+            </div>
+            <div>
+                <md-input-container>
+                    <input mdInput name="origin" placeholder="Origin" [(ngModel)]="model.origin" required>
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput name="destination" placeholder="Destination" [(ngModel)]="model.destination" required>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container>
+                    <input mdInput name="departureDate" [(ngModel)]="model.departureDate" [mdDatepicker]="departPicker" placeholder="Depart:" required>
+                    <md-datepicker-toggle mdSuffix [for]="departPicker"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker [startAt]="model.departureDate" #departPicker></md-datepicker>
+
+                <md-input-container>
+                    <input mdInput name="arrivalDate" [(ngModel)]="model.arrivalDate" [mdDatepicker]="returnPicker" placeholder="Return:" required>
+                    <md-datepicker-toggle mdSuffix [for]="returnPicker"></md-datepicker-toggle>
+                </md-input-container>
+                <md-datepicker  [startAt]="model.arrivalDate" #returnPicker></md-datepicker>
+            </div>
+            <button md-raised-button color="accent" [disabled]="!searchForm.form.valid">Let's Go</button>
+        </form>
+    </md-card-content>
+
+</md-card>

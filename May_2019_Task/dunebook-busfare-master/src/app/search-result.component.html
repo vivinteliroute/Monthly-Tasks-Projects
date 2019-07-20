@@ -1,0 +1,23 @@
+ <section *ngIf="results">
+ 	<h3>Search results</h3>
+ 	<table >
+ 		<thead>
+ 			<tr>
+ 				<th>origin</th>
+ 				<th>destination</th>
+ 				<th>seat</th>
+ 				<th>fare.totalfare</th>
+ 				<th>duration</th>
+ 			</tr>
+ 		</thead>
+ 		<tbody>
+ 			<tr *ngFor="let item of results.onwardflights">
+ 				<td>{{item.origin}}</td>
+ 				<td>{{item.destination}}</td>
+ 				<td>{{item.seat}}</td>
+ 				<td>{{item.fare.totalfare}}</td>
+ 				<td>{{item.duration}}</td>
+ 			</tr>
+ 		</tbody>
+ 	</table>
+ </section>
